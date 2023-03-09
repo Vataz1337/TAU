@@ -50,10 +50,9 @@ public class BookService {
     }
 
     public long updateBookInRepo(Book book) {
-        Optional<Book> repBook = booksRepository.findById(book.getId());
-
-        if (repBook.isPresent()) {
-            Book bookToUpdate = repBook.get();
+        if (booksRepository.existsById(book.getId())) {
+            Book bookToUpdate = new Book();
+            bookToUpdate.setId(book.getId());
             bookToUpdate.setName(book.getName());
             bookToUpdate.setGenre(book.getGenre());
             bookToUpdate.setPrice(book.getPrice());

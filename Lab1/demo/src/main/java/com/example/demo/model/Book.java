@@ -23,6 +23,18 @@ public class Book {
     @Column(name = "description")
     private String description;
 
+    public Book(Long id, String name, String genre, int price, String description) {
+        this.id = id;
+        this.name = name;
+        this.genre = genre;
+        this.price = price;
+        this.description = description;
+    }
+
+    public Book() {
+
+    }
+
     public Long getId() {
         return id;
     }
