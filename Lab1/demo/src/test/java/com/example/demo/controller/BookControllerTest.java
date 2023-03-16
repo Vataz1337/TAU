@@ -45,7 +45,7 @@ class BookControllerTest {
     }
 
     @Test
-    void getBook() {
+    void TestGetBook() {
         long bookId = 1L;
         when(bookService.getBookFromRepo(bookId)).thenReturn(new Book(1L, "The Book1", "Fiction", 9, "A great book"));
 
@@ -57,7 +57,7 @@ class BookControllerTest {
     }
 
     @Test
-    void createBook() {
+    void TestCreateBook() {
         Book book = new Book(1L, "The Book1", "Fiction", 9, "A great book");
         when(bookService.insertBookIntoRepo(any(Book.class))).thenReturn(1L);
 
@@ -81,12 +81,12 @@ class BookControllerTest {
     }
 
     @Test
-    void updateBook() {
+    void TestUpdateBook() {
         Book book = new Book(1L, "The Book1", "Fiction", 9, "A great book");
         when(bookService.updateBookInRepo(any(Book.class))).thenReturn(1L);
 
         ResponseEntity<Long> response = bookController.updateBook(book);
-        
+
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(1L, response.getBody());
         verify(bookService, times(1)).updateBookInRepo(any(Book.class));

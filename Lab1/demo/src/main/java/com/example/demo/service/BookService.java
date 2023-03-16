@@ -1,14 +1,13 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.example.demo.exceptions.BookAlreadyExists;
 import com.example.demo.exceptions.BookNotFound;
 import com.example.demo.model.Book;
 import com.example.demo.repository.BooksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class BookService {
